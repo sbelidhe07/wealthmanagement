@@ -38,3 +38,7 @@
 
 ###### Below stated are screen shots of all the Data Visulation Graphs
 ![](images/WealthyIndividualsBarChart.png)
+![](images/WealthyIndividualsPieChart.png)
+![](images/YearwiseBillionariestotalNetworth.png)
+![](images/WealthyFamiliesBarChart.png)
+![](images/WealthyIndividualData.png)
