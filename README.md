@@ -26,6 +26,14 @@
 * Django
 * ReactJs
 * D3 - Data Visualization in UI
-* Mysql - Database for storing data
+* Mysql 5.7 - Database for storing data
+* Mysql-client@5.7 for Database Connector
+
+###### work done till now
+* Created scrapers for pulling Wealthy Individuals Current and time series data using forbes400 REST API along with logic for storing in DB
+* Created scraper for pulling Wealthy Family from wikipedia and added logic to visualize the data using maptolib and pandas libraries
+* Created scrapper for pulling the universities data from work and money site
+* Created scrapper for pulling the Non Proit Organization data from tharawat magazine
+* Created Data Visulation graphs (Bar and pie charts) depicting the Current Wealthy Individuals using D3 + ReactJS
 
 
