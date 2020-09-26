@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 
 ssl._create_default_https_context = ssl._create_unverified_context
-ua1 = UserAgent()
+ua1 = UserAgent(verify_ssl=False)
 randomHeader = {'User-Agent':str(ua1.random)}
 scrapeLink = 'https://www.bloombergquint.com/labs/richest-families-in-the-world/'
 page = requests.get(scrapeLink, randomHeader)

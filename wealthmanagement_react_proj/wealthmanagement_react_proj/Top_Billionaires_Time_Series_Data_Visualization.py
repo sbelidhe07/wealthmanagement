@@ -25,7 +25,7 @@ from django.conf import settings
 #from wwealth.models import *
 
 ssl._create_default_https_context = ssl._create_unverified_context
-ua1 = UserAgent(use_cache_server=False)
+ua1 = UserAgent(verify_ssl=False)
 randomHeader = {'User-Agent':str(ua1.random)}
 scrapeLink = 'https://en.wikipedia.org/wiki/The_World%27s_Billionaires#2016'
 page = requests.get(scrapeLink, randomHeader)
