@@ -16,8 +16,8 @@ class App extends Component {
 
  state = {
     data: [12, 5, 6, 6, 9, 10],
-    pwidth: 600,
-    pheight: 400,
+    pwidth: 800,
+    pheight: 500,
     bwidth: 1400,
     bheight: 450,
     pid: 'proot',

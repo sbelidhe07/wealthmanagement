@@ -72,6 +72,7 @@ drawChart() {
             .attr('width', width)
             .attr('height', height);
 
+
         const margin = {
             top: 60,
             bottom: 100,
@@ -79,12 +80,19 @@ drawChart() {
             right: 40
         };
 
+
+
+
+
+
+
         const chart = svg.append('g')
             .classed('display', true)
             .attr('transform', `translate(${margin.left},${margin.top})`);
 
         const chartWidth = width - margin.left - margin.right;
         const chartHeight = height - margin.top - margin.bottom
+
 
          //console.log(data);
         // create scales!
@@ -135,6 +143,8 @@ drawChart() {
         const xAxis = d3.axisBottom()
             .scale(xScale);
 
+
+
         chart.append('g')
             .classed('x axis', true)
             .attr('transform', `translate(0,${chartHeight})`)
@@ -143,6 +153,14 @@ drawChart() {
         const yAxis = d3.axisLeft()
             .ticks(5)
             .scale(yScale);
+
+        chart.append("text")
+            .attr("x", (width/2))
+            .attr("y", 0 - (margin.top/2))
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("Billionaire's Ranking vs Net Worth Graph");
 
         chart.append('g')
             .classed('y axis', true)

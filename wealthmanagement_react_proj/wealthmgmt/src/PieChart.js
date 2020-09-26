@@ -34,8 +34,11 @@ var self=this;
 
 const svg = d3.select("body").append("svg")
   .attr("width",self.props.width)
-  .attr("height", self.props.height)
-  .style("margin-left", 100);
+  .attr("height", self.props.height);
+
+
+
+
 
     var radius = Math.min(self.props.width, self.props.height) / 2 ;
     //console.log(self.props.height)
@@ -82,8 +85,12 @@ const svg = d3.select("body").append("svg")
                .text(function(d) { return d.data.substr(0,d.data.indexOf("("))+"-$"+d.data.substr(d.data.indexOf("(")+1,d.data.length-1).trim().replace(")","") });
 
       svg.append("g")
-          .attr("transform", "translate(" + (self.props.width / 2)  +  ")")
-                        .append("text");
+            .attr("transform", "translate(" + (self.props.width / 2 + 120) + "," +  20 + ")")
+            .append("text")
+            .text("Billionaire's Net Worth Ratio Graph")
+            .attr("class", "title");
+
+
 
  })
 }

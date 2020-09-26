@@ -63,6 +63,10 @@
 	.dropdown-menu > li:hover > .submenu{
 		display: block;
 	}
+	.title {
+         fill: teal;
+         font-weight: bold;
+     }
 }
 
 #chart {
