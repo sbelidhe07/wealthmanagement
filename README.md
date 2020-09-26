@@ -37,4 +37,4 @@
 * Created Data Visulation graphs (Bar and pie charts) depicting the Current Wealthy Individuals using D3 + ReactJS
 
 ###### Below stated are screen shots of all the Data Visulation Graphs
-
+![](images/WealthyIndividualsBarChart.png)
