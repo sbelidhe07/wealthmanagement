@@ -38,4 +38,9 @@
 
 ###### Below stated are screen shots of all the Data Visulation Graphs
 
-![Screenshot](Screen Shot 2020-09-26 at 22.37.55.png)
+<img
+src=“/Users/srinivas/Desktop/Screen Shot 2020-09-26 at 23.20.53.png”
+raw=true
+alt=“Subject Pronouns”
+style=“margin-right: 10px;”
+/>
