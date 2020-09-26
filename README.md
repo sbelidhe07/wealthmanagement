@@ -36,4 +36,6 @@
 * Created scrapper for pulling the Non Proit Organization data from tharawat magazine
 * Created Data Visulation graphs (Bar and pie charts) depicting the Current Wealthy Individuals using D3 + ReactJS
 
+###### Below stated are screen shots of all the Data Visulation Graphs
 
+![Screenshot](Screen Shot 2020-09-26 at 22.37.55.png)
