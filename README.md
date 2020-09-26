@@ -38,7 +38,7 @@
 
 ###### Below stated are screen shots of all the Data Visulation Graphs
 
-<img
+> <img
 src=“/Users/srinivas/Desktop/Screen Shot 2020-09-26 at 23.20.53.png”
 raw=true
 alt=“Subject Pronouns”
