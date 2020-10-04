@@ -6,6 +6,7 @@ import {
   } from "react-router-dom";
 
 import  WealthHeldList from './WealthHeldList'
+import WealthHeldTSList from './WealthHeldTSList'
 import BarChart from './BarChart'
 import PieChart from './PieChart'
 import './App.css';
@@ -44,17 +45,23 @@ class App extends Component {
                                           <ul className="dropdown-menu">
                                                   <li>
                                                     <a className="dropdown-item" href="#">
-                                                      Current Billionaires
+                                                      Current Billionaires Data
                                                     </a>
-                                                     <ul className="submenu dropdown-menu">
-                                                        <li><a className="dropdown-item" href="/wheldinfo">Data</a></li>
-                                                        <li><a className="dropdown-item" href="/barchart">Bar chart</a></li>
-                                                        <li><a className="dropdown-item" href="/piechart">Pie Chart</a></li>
-                                                     </ul>
-                                                    </li>
-                                                 <li><a className="dropdown-item" href="/wheldtsinfo">Billionaire''s Time Series</a></li>
-                                            </ul>
-                                          </li>
+                                                            <ul className="submenu dropdown-menu">
+                                                                <li><a className="dropdown-item" href="/wheldinfo">Data</a></li>
+                                                                <li><a className="dropdown-item" href="/barchart">Bar chart</a></li>
+                                                                <li><a className="dropdown-item" href="/piechart">Pie Chart</a></li>
+                                                            </ul>
+                                                         </li>
+                                                         <li><a className="dropdown-item" href="#">Billionaires Time Series Data</a>
+                                                            <ul className="submenu dropdown-menu">
+                                                                <li><a className="dropdown-item" href="/wheldtsinfo">Data</a></li>
+                                                                <li><a className="dropdown-item" href="/barchartts">Bar chart</a></li>
+                                                                <li><a className="dropdown-item" href="/piechartts">Pie Chart</a></li>
+                                                            </ul>
+                                                        </li>
+                                                </ul>
+                                              </li>
                                           <li className="nav-item dropdown">
                                             <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                                               Billionaires Family
@@ -98,7 +105,7 @@ class App extends Component {
                  <br />
                 <Switch>
                     <Route path="/wheldinfo" exact component={WealthHeldList} />
-
+                    <Route path="/wheldtsinfo" exact component={WealthHeldTSList} />
                     <Route
                     path='/barchart'
                     render={(props) => (

@@ -8,8 +8,18 @@ export default class WealthHeldInfoService{
         console.log(url);
         return axios.get(url).then(response => response.data);
     }
+     getAllTSData() {
+        const url = `${API_URL}/api/tsall/`;
+        console.log(url);
+        return axios.get(url).then(response => response.data);
+    }
     getWealthHeld() {
         const url = `${API_URL}/api/wheldinfo/`;
+        console.log(url);
+        return axios.get(url).then(response => response.data);
+    }
+     getWealthHeldTS() {
+        const url = `${API_URL}/api/wheldtsinfo/`;
         console.log(url);
         return axios.get(url).then(response => response.data);
     }
@@ -18,15 +28,20 @@ export default class WealthHeldInfoService{
         return axios.get(url).then(response => response.data);
     }
     getWealthHeldByCategory(categoryId) {
-        const url = `${API_URL}/api/wheldinfo/${categoryId}`;
+        const url = `${API_URL}/api/wheldinfo/${categoryId}/`;
+        return axios.get(url).then(response => response.data);
+    }
+    getWealthTSHeld() {
+        const url = `${API_URL}/api/wheldtsinfo/`;
+        console.log(url);
         return axios.get(url).then(response => response.data);
     }
     getWealthHeldTimeSeriesByYear(year) {
-        const url = `${API_URL}/api/wheldtsinfo/${year}`;
+        const url = `${API_URL}/api/wheldtsinfo/${year}/`;
         return axios.get(url).then(response => response.data);
     }
     getWealthHeldTimeSeriesByYearCategory(year,categoryId) {
-        const url = `${API_URL}/api/wheldtsinfo/${year}/${categoryId}`;
+        const url = `${API_URL}/api/wheldtsinfo/${year}/${categoryId}/`;
         return axios.get(url).then(response => response.data);
     }
 }

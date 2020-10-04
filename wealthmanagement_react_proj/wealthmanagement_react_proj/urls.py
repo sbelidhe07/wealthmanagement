@@ -21,7 +21,9 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/all/$', views.all_list),
+    url(r'^api/tsall/$', views.tsall_list),
     url(r'^api/wheldinfo/$', views.wealthheld_list),
+    url(r'^api/wheldtsinfo/$', views.wealthheldts_list),
     url(r'^api/wheldinfo/([0-9]+)/$', views.wealthheld_category),
     url(r'^api/wheldtsinfo/([0-9]+)/$', views.wealthheldts_year),
     url(r'^api/wheldtsinfo/([0-9]+)/([0-9]+)/$', views.wealthheldts_year_category),

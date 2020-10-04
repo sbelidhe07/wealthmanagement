@@ -98,3 +98,10 @@
 	stroke: #ccc;
 	shape-rendering: crispEdges;
 }
+
+.select-control {
+    width: 15%;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 0.3rem;
+}

@@ -22,6 +22,17 @@ def all_list(request):
       return Response({'data': serializer.data})
 
 @api_view(['GET'])
+def tsall_list(request):
+
+#List wealth held time series details.
+
+    if request.method == 'GET':
+      wheldtsinfo = WealthHeldTS.objects.all()
+
+      serializer = WealthHeldTSSerializer(wheldtsinfo,context={'request': request} ,many=True)
+      return Response({'data': serializer.data})
+
+@api_view(['GET'])
 def wealthheld_list(request):
 
 
@@ -50,6 +61,38 @@ def wealthheld_list(request):
           previousPage = data.previous_page_number()
       print(nextPage)
       return Response({'data': serializer.data , 'count': paginator.count, 'numpages' : paginator.num_pages, 'nextlink': '/api/wheldinfo/?page=' + str(nextPage), 'prevlink': '/api/wheldinfo/?page=' + str(previousPage)})
+
+
+@api_view(['GET'])
+def wealthheldts_list(request):
+
+
+#List wealth time series held details.
+
+
+    if request.method == 'GET':
+      data = []
+      nextPage = 1
+      previousPage = 1
+      wheldtsinfo = WealthHeldTS.objects.all()
+      page = request.GET.get('page', 1)
+      paginator = Paginator(wheldtsinfo, 10)
+      try:
+          data = paginator.page(page)
+      except PageNotAnInteger:
+          data = paginator.page(1)
+      except EmptyPage:
+          data = paginator.page(paginator.num_pages)
+
+      serializer = WealthHeldTSSerializer(data,context={'request': request} ,many=True)
+      print(serializer.data)
+      if data.has_next():
+          nextPage = data.next_page_number()
+      if data.has_previous():
+          previousPage = data.previous_page_number()
+      print(nextPage)
+      return Response({'data': serializer.data , 'count': paginator.count, 'numpages' : paginator.num_pages, 'nextlink': '/api/wheldtsinfo/?page=' + str(nextPage), 'prevlink': '/api/wheldtsinfo/?page=' + str(previousPage)})
+
 
 
 @api_view(['GET'])
