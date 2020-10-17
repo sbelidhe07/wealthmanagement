@@ -32,6 +32,20 @@ def tsall_list(request):
       serializer = WealthHeldTSSerializer(wheldtsinfo,context={'request': request} ,many=True)
       return Response({'data': serializer.data})
 
+
+@api_view(['GET'])
+def tsall_list_year(request,year):
+
+#List wealth held time series details.
+
+    if request.method == 'GET':
+      wheldtsinfo = WealthHeldTS.objects.filter(year=year)
+
+      serializer = WealthHeldTSSerializer(wheldtsinfo,context={'request': request} ,many=True)
+      return Response({'data': serializer.data})
+
+
+
 @api_view(['GET'])
 def wealthheld_list(request):
 

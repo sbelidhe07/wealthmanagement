@@ -9,6 +9,8 @@ import  WealthHeldList from './WealthHeldList'
 import WealthHeldTSList from './WealthHeldTSList'
 import BarChart from './BarChart'
 import PieChart from './PieChart'
+import BarChartTS from './BarChartTS'
+import PieChartTS from './PieChartTS'
 import './App.css';
 
 
@@ -112,12 +114,24 @@ class App extends Component {
                     <BarChart {...props} data={this.state.data} width={this.state.bwidth} height={this.state.bheight}/>
                     )}
                     />
-
+                  <Route
+                    path='/barchartts'
+                    render={(props) => (
+                    <BarChartTS {...props} data={this.state.data} width={this.state.bwidth} height={this.state.bheight}/>
+                    )}
+                    />
                     <Route
                     path="/piechart"
                     render={(props) => (
                     <PieChart {...props} data={this.state.data} width={this.state.pwidth} height={this.state.pheight}/>
                     )}
+                    />
+                    <Route
+                    path="/piechartts"
+                    render={(props) => (
+                    <PieChartTS {...props} data={this.state.data} width={this.state.pwidth} height={this.state.pheight}/>
+                    )}
+
                     />
                 </Switch>
 

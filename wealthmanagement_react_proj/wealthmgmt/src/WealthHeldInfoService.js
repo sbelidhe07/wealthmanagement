@@ -13,6 +13,12 @@ export default class WealthHeldInfoService{
         console.log(url);
         return axios.get(url).then(response => response.data);
     }
+     getAllTSDataByYear(year) {
+        const url = `${API_URL}/api/tsall/${year}/`;
+        console.log(url);
+        return axios.get(url).then(response => response.data);
+    }
+
     getWealthHeld() {
         const url = `${API_URL}/api/wheldinfo/`;
         console.log(url);

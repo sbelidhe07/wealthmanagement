@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/all/$', views.all_list),
     url(r'^api/tsall/$', views.tsall_list),
+    url(r'^api/tsall/([0-9]+)/$', views.tsall_list_year),
     url(r'^api/wheldinfo/$', views.wealthheld_list),
     url(r'^api/wheldtsinfo/$', views.wealthheldts_list),
     url(r'^api/wheldinfo/([0-9]+)/$', views.wealthheld_category),
