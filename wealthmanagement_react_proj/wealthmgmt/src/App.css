@@ -87,9 +87,10 @@
 
 .bar-label-ts{
     fill: #000;
-	text-anchor: start;
+	text-anchor: middle;
 	font-size: 12px;
 	font-weight: bold;
+	text-align: center;
 }
 
 .bar-label-sc{
@@ -187,4 +188,39 @@
     font-family: sans-serif;
     font-size: 16px;
     line-height: 20px;
+}
+
+.axis1 {
+	font: 10px sans-serif;
+}
+
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: #6F257F;
+  stroke-width: 5px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: #F1F3F3;
+  stroke: #6F257F;
+  stroke-width: 5px;
+}
+
+.hover-line {
+  stroke: #6F257F;
+  stroke-width: 2px;
+  stroke-dasharray: 3,3;
 }

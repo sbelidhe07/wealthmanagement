@@ -22,50 +22,16 @@ componentDidMount() {
 
 
 drawChart() {
-//var self=this;
-//const data = []
  wealthHeldService.getAllData().then(function(result) {
 
   var data = result.data;
 
 
 
-//console.log(data);
-
-/*const svg = d3.select("body").append("svg")
-  .attr("width",self.props.width)
-  .attr("height", self.props.height)
-  .style("margin-left", 100);
-
-
-
-    svg.selectAll("rect")
-      .data(data)
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => i * 50)
-      .attr("y", (d, i) => self.props.height - (2 * d))
-      .attr("width", 25)
-      .attr("height", (d, i) => d * 2)
-      .attr("fill", "green");
-
-//d.substr(d.indexOf("(")+1,d.length-1).trim().replace(")","")
-
-    svg.selectAll("text")
-        .data(labeldata)
-        .enter()
-        .append("text")
-        .text((d) => d.substr(0,d.indexOf("("))+"-$"+d.substr(d.indexOf("(")+1,d.length-1).trim().replace(")",""))
-        .attr("x", (d, i) => i * 50)
-        .attr("y", (d, i) => self.props.height - (2 * d.substr(d.indexOf("(")+1,d.length-1).trim().replace(")","")) - 3)
-        .style("text-anchor", "start")
-        .attr("transform", (d,i) => console.log((i + 1) * 50));
-*/
 
         const width = 800;
         const height = 450;
 
-        //const el = new Element('div');
         const svg = d3.select("body")
             .append('svg')
             .attr('id', 'chart')
@@ -94,8 +60,6 @@ drawChart() {
         const chartHeight = height - margin.top - margin.bottom
 
 
-         //console.log(data);
-        // create scales!
         const xScale = d3.scaleBand()
             .domain(data.map(d => d.ranking))
             .range([1, chartWidth]);
@@ -104,17 +68,11 @@ drawChart() {
                 return c.networth.replace("$","").replace("billion","") ;
         })
 
-        //console.log(ydata)
-
-
-        //console.log(xScale);
-        //console.log(d3.max(data, d => d.networth.replace("$","").replace("billion","")))
 
 
         const yScale = d3.scaleLinear()
             .domain([0, ydata[0]])
             .range([chartHeight, 0]);
-        //console.log(yScale);
         const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
         chart.selectAll('.bar')
@@ -136,7 +94,6 @@ drawChart() {
             .attr('x', d => xScale(d.ranking) + xScale.bandwidth()/2)
             .attr('dx', 1)
             .attr('y', d => yScale(d.networth.replace("$","").replace("billion","")))
-            //.attr('transform', `translate(xScale(d.ranking) + xScale.bandwidth()/2) - 300,yScale(d.networth.replace("$","").replace("billion","")) - 300 ) rotate(-35)`)
             .attr('dy', -6)
             .text(d => d.name);
 
@@ -196,20 +153,10 @@ drawChart() {
             .call(yGridlines)
             .classed('gridline', false);
 
-
-
-        //self.plot(chart, chartWidth, chartHeight,data);
-
-        //console.log(el.toReact())
-
-        //return el.toReact();
-
  })
 }
 
 render(){
-     //var self=this;
-     //console.log({self.drawChart()});
      return (<div id={"#" + this.props.bid}></div>);
   }
 

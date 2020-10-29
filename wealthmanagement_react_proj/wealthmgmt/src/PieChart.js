@@ -22,15 +22,12 @@ componentWillMount() {
 
 drawChart() {
 var self=this;
-//const data = []
  wealthHeldService.getAllData().then(function(result) {
 
    var labeldata = result.data.map(function(c) {
     return c.name + " (" + c.networth.replace("$","").replace("billion","") + ")";
   })
 
-
-//console.log(data);
 
 const svg = d3.select("body").append("svg")
   .attr("width",self.props.width)
@@ -41,7 +38,6 @@ const svg = d3.select("body").append("svg")
 
 
     var radius = Math.min(self.props.width, self.props.height) / 2 ;
-    //console.log(self.props.height)
     var g = svg.append("g").attr("transform", "translate(" + self.props.width / 2 + "," + self.props.height / 2 + ")");
 
     var color = d3.scaleOrdinal(['green','yellow','pink','blue','red','purple','brown','orange','gray','cyan']);

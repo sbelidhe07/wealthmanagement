@@ -4,7 +4,7 @@ import {event as currentEvent} from 'd3-selection';
 import  WealthHeldInfoService  from  './WealthHeldInfoService';
 const  wealthHeldService  =  new  WealthHeldInfoService();
 
-export default class BarChart extends Component {
+export default class PieChartTS extends Component {
 
    constructor(props) {
     super(props);
@@ -27,15 +27,11 @@ var data = []
  wealthHeldService.getAllTSData().then(function(result) {
 
   data = result.data;
-  //var y =0;
   var totals = data.reduce(function (r, o) {
     var x = o.networth.replace(/[^0-9.]/g, "");
     (r[o.year])? r[o.year] += parseInt(x) : r[o.year] = parseInt(x);
     return r;
   }, {});
-
-    console.log(totals.length)
-    console.log(typeof(totals))
 
     var key;
     data = [];
@@ -47,8 +43,6 @@ var data = []
     }
 }
 
-//console.log(data);
-
 const svg = d3.select("body").append("svg")
   .attr("width",self.props.width)
   .attr("height", self.props.height);
@@ -58,7 +52,6 @@ const svg = d3.select("body").append("svg")
 
 
     var radius = Math.min(self.props.width, self.props.height) / 2 ;
-    //console.log(self.props.height)
     var g = svg.append("g").attr("transform", "translate(" + self.props.width / 2 + "," + self.props.height / 2 + ")");
 
     var color = d3.scaleOrdinal([ "#2484c1","#65a620","#7b6888","#a05d56","#961a1a","#d8d23a","#e98125","#d0743c","#635222","#6ada6a","#0c6197","#7d9058","#207f33","#44b9b0","#bca44a","#e4a14b","#a3acb2","#8cc3e9","#69a6f9","#5b388f"]);
@@ -113,43 +106,8 @@ const svg = d3.select("body").append("svg")
 
 
 
-//console.log(data);
-
-/*const svg = d3.select("body").append("svg")
-  .attr("width",self.props.width)
-  .attr("height", self.props.height)
-  .style("margin-left", 100);
-
-
-
-    svg.selectAll("rect")
-      .data(data)
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => i * 50)
-      .attr("y", (d, i) => self.props.height - (2 * d))
-      .attr("width", 25)
-      .attr("height", (d, i) => d * 2)
-      .attr("fill", "green");
-
-//d.substr(d.indexOf("(")+1,d.length-1).trim().replace(")","")
-
-    svg.selectAll("text")
-        .data(labeldata)
-        .enter()
-        .append("text")
-        .text((d) => d.substr(0,d.indexOf("("))+"-$"+d.substr(d.indexOf("(")+1,d.length-1).trim().replace(")",""))
-        .attr("x", (d, i) => i * 50)
-        .attr("y", (d, i) => self.props.height - (2 * d.substr(d.indexOf("(")+1,d.length-1).trim().replace(")","")) - 3)
-        .style("text-anchor", "start")
-        .attr("transform", (d,i) => console.log((i + 1) * 50));
-*/
-
         const width = 800;
         const height = 450;
-        //var self = this;
-        //const el = new Element('div');
-        //var name = React.findDOMNode(self.chartRef);
         d3.select('#sub-chart').remove()
 
         //var sampleSVG = newWindowRoot;
@@ -163,7 +121,6 @@ const svg = d3.select("body").append("svg")
                 console.log(d)
             });
 
-         //console.log();
 
         const margin = {
             top: 60,
@@ -186,8 +143,6 @@ const svg = d3.select("body").append("svg")
         const chartHeight = height - margin.top - margin.bottom
 
 
-         //console.log(data);
-        // create scales!
         const xScale = d3.scaleBand()
             .domain(data.map(d => d.ranking))
             .range([1, chartWidth]);
@@ -196,17 +151,10 @@ const svg = d3.select("body").append("svg")
                 return c.networth.replace("$","").replace("billion","") ;
         })
 
-        //console.log(ydata)
-
-
-        //console.log(xScale);
-        //console.log(d3.max(data, d => d.networth.replace("$","").replace("billion","")))
-
 
         const yScale = d3.scaleLinear()
             .domain([0, ydata[0]])
             .range([chartHeight, 0]);
-        //console.log(yScale);
         const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
         chart.selectAll('.bar')
@@ -234,22 +182,6 @@ const svg = d3.select("body").append("svg")
                     d3.select("#bar-tooltip")
                         .style("opacity", 0);;
                 })
-            //console.log()
-
-        /*chart.selectAll('.bar-label-sc')
-            .data(data)
-            .enter()
-            .append('text')
-            .classed('bar-label-sc', true)
-            .style('font-size','8px')
-            .style('font-weight','bold')
-            .attr('x', d => xScale(d.ranking) + xScale.bandwidth()/4)
-            //.attr('dx', 1)
-            .attr('y', d => yScale(d.networth.replace("$","").replace("billion","")))
-            //.attr('transform', "translate("+xScale(d.ranking) + "," +  + ") rotate(50)")
-            //.attr('dy', -6)
-            .text(d => "\n"+ d.name+"\n");*/
-
         const xAxis = d3.axisBottom()
             .scale(xScale);
 
@@ -306,13 +238,6 @@ const svg = d3.select("body").append("svg")
             .call(yGridlines)
             .classed('gridline', false);
 
-
-
-        //self.plot(chart, chartWidth, chartHeight,data);
-
-        //console.log(el.toReact())
-
-        //return el.toReact();
 
  });
 

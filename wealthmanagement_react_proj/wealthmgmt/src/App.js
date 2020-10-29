@@ -11,6 +11,8 @@ import BarChart from './BarChart'
 import PieChart from './PieChart'
 import BarChartTS from './BarChartTS'
 import PieChartTS from './PieChartTS'
+import LineChartTS from './LineChartTS'
+
 import './App.css';
 
 
@@ -21,6 +23,8 @@ class App extends Component {
     data: [12, 5, 6, 6, 9, 10],
     pwidth: 800,
     pheight: 500,
+    lwidth: 1000,
+    lheight: 800,
     bwidth: 1400,
     bheight: 450,
     pid: 'proot',
@@ -60,6 +64,7 @@ class App extends Component {
                                                                 <li><a className="dropdown-item" href="/wheldtsinfo">Data</a></li>
                                                                 <li><a className="dropdown-item" href="/barchartts">Bar chart</a></li>
                                                                 <li><a className="dropdown-item" href="/piechartts">Pie Chart</a></li>
+                                                                <li><a className="dropdown-item" href="/linechartts">Line Chart</a></li>
                                                             </ul>
                                                         </li>
                                                 </ul>
@@ -130,6 +135,13 @@ class App extends Component {
                     path="/piechartts"
                     render={(props) => (
                     <PieChartTS {...props} data={this.state.data} width={this.state.pwidth} height={this.state.pheight}/>
+                    )}
+
+                    />
+                    <Route
+                    path="/linechartts"
+                    render={(props) => (
+                    <LineChartTS {...props} data={this.state.data} width={this.state.lwidth} height={this.state.lheight}/>
                     )}
 
                     />
